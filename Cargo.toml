@@ -1,5 +1,5 @@
 [package]
-name = "modbus-core"
+name = "modbus_core-rs"
 description = "Modbus base library"
 version = "0.0.0"
 authors = ["slowtec GmbH", "Markus Kohlhase <markus.kohlhase@slowtec.de>"]
