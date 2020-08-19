@@ -3,7 +3,7 @@
 #[macro_use]
 extern crate log;
 
-mod codec;
+pub mod codec;
 mod error;
 mod frame;
 

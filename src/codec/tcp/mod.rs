@@ -8,7 +8,12 @@ pub use crate::frame::tcp::*;
 
 // [MODBUS MESSAGING ON TCP/IP IMPLEMENTATION GUIDE V1.0b](http://modbus.org/docs/Modbus_Messaging_Implementation_Guide_V1_0b.pdf), page 18
 // "a MODBUS request needs a maximum of 256 bytes + the MBAP header size"
+#[cfg(feature = "maxframelen256")]
 const MAX_FRAME_LEN: usize = 256;
+
+// Added this in seeing that MCU's dont always have tons of space 
+#[cfg(feature = "maxframelen128")]
+const MAX_FRAME_LEN: usize = 128;
 
 /// An extracted TCP PDU frame.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

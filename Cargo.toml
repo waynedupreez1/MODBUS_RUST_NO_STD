@@ -14,10 +14,14 @@ log = "0.4"
 byteorder = { version =  "1.3", default-features = false }
 
 [features]
-default = ["tcp", "rtu"]
+default = ["tcp", "rtu", "maxframelen256"]
 tcp = []
 rtu = []
+maxframelen128 = []
+maxframelen256 = []
+
 std = ["byteorder/std"]
+
 
 [badges]
 travis-ci = { repository = "slowtec/modbus-core" }
