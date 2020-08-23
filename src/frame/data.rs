@@ -75,6 +75,11 @@ impl<'d> IntoIterator for Data<'d> {
     }
 }
 
+pub fn to_word(buf: &[u8]) -> u16 {
+    BigEndian::read_u16(buf)
+}
+
+
 #[cfg(test)]
 mod tests {
 
