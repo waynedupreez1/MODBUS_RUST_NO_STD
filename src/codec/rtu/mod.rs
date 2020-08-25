@@ -11,7 +11,7 @@ pub use crate::frame::rtu::*;
 #[cfg(feature = "maxframelen256")]
 const MAX_FRAME_LEN: usize = 256;
 
-// Added this in seeing that MCU's dont always have tons of space 
+// Added this in seeing that MCU's dont always have tons of space
 #[cfg(feature = "maxframelen128")]
 const MAX_FRAME_LEN: usize = 128;
 
