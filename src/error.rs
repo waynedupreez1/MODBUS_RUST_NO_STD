@@ -27,28 +27,30 @@ impl fmt::Display for Error {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         use Error::*;
 
-        match self {
+/*         match self {
             CoilValue(v) => write!(f, "Invalid coil value: {}", v),
             BufferSize => write!(f, "Invalid buffer size"),
             FnCode(fn_code) => write!(f, "Invalid function code: 0x{:0>2X}", fn_code),
             ExceptionCode(code) => write!(f, "Invalid exception code:0x {:0>2X}", code),
             ExceptionFnCode(code) => write!(f, "Invalid exception function code:0x {:0>2X}", code),
-            Crc(expected, actual) => write!(
-                f,
-                "Invalid CRC: expected = 0x{:0>4X}, actual = 0x{:0>4X}",
-                expected, actual
-            ),
+            Crc(expected, actual) => write!(f,"Invalid CRC: expected = 0x{:0>4X}, actual = 0x{:0>4X}",expected, actual),
             ByteCount(cnt) => write!(f, "Invalid byte count: {}", cnt),
-            LengthMismatch(length_field, pdu_len) => write!(
-                f,
-                "Length Mismatch: Length Field: {}, PDU Len + 1: {}",
-                length_field, pdu_len
-            ),
-            ProtocolNotModbus(protocol_id) => write!(
-                f,
-                "Protocol not Modbus(0), recieved {} instead",
-                protocol_id
-            ),
+            LengthMismatch(length_field, pdu_len) => write!(f,"Length Mismatch: Length Field: {}, PDU Len + 1: {}",length_field, pdu_len),
+            ProtocolNotModbus(protocol_id) => write!(f,"Protocol not Modbus(0), recieved {} instead",protocol_id),
+        } */
+
+        match self {
+            CoilValue(_) => write!(f, "Invalid coil"),
+            BufferSize => write!(f, "Invalid buffer size"),
+            FnCode(_) => write!(f, "Invalid function code"),
+            ExceptionCode(_) => write!(f, "Invalid exception code"),
+            ExceptionFnCode(_) => write!(f, "Invalid exception function"),
+            Crc(_, _) => write!(f,"Invalid CRC"),
+            ByteCount(cnt) => write!(f, "Invalid byte count: {}", cnt),
+            LengthMismatch(_, _) => write!(f,"Length Mismatch"),
+            ProtocolNotModbus(_) => write!(f,"Protocol not Modbus"),
         }
+
+
     }
 }
