@@ -5,7 +5,7 @@ extern crate log;
 
 pub mod codec;
 mod error;
-mod frame;
+pub mod frame;
 
 pub use codec::rtu;
 pub use codec::tcp;

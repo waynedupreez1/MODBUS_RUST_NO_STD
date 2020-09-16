@@ -284,6 +284,7 @@ pub enum Exception {
     MemoryParityError = 0x08,
     GatewayPathUnavailable = 0x0A,
     GatewayTargetDevice = 0x0B,
+    None,
 }
 
 impl fmt::Display for Exception {
@@ -300,6 +301,7 @@ impl fmt::Display for Exception {
             MemoryParityError => "Memory parity error",
             GatewayPathUnavailable => "Gateway path unavailable",
             GatewayTargetDevice => "Gateway target device failed to respond",
+            None => "No Error"
         };
         write!(f, "{}", desc)
     }
