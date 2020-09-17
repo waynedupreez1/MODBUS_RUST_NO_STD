@@ -72,12 +72,11 @@ pub fn decode(decoder_type: DecoderType, buf: &[u8],) -> Result<Option<(DecodedF
             };
 
             if drop_cnt + 1 >= MAX_FRAME_LEN {
-                //error!("Giving up to decode frame after dropping {} byte(s): {:X?}", drop_cnt, &buf[0..drop_cnt]);
-                error!("Giving up to decode frame");
+                error!("Giving up to decode frame after dropping {} byte(s): {:X?}", drop_cnt, &buf[0..drop_cnt]);
                 return Err(err);
             }
             
-            //warn!("Failed to decode {} frame: {}", pdu_type, err);
+            warn!("Failed to decode {} frame: {}", pdu_type, err);
             drop_cnt += 1;
             retry = true;
             Ok(None)
