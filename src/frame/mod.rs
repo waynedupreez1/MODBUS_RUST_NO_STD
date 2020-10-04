@@ -43,6 +43,12 @@ pub enum FnCode {
     Custom(u8),
 }
 
+impl core::default::Default for FnCode {
+    fn default() -> Self {
+        FnCode::Custom(0)
+    }
+}
+
 impl From<u8> for FnCode {
     fn from(c: u8) -> Self {
         use FnCode::*;
@@ -285,6 +291,12 @@ pub enum Exception {
     GatewayPathUnavailable = 0x0A,
     GatewayTargetDevice = 0x0B,
     None,
+}
+
+impl core::default::Default for Exception {
+    fn default() -> Self {
+        Exception::None
+    }
 }
 
 impl fmt::Display for Exception {
